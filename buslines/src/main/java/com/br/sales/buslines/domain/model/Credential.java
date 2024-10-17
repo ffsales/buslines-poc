@@ -1,4 +1,4 @@
-package com.br.sales.buslines.model;
+package com.br.sales.buslines.domain.model;
 
 import lombok.Data;
 

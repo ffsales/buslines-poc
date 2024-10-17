@@ -1,0 +1,15 @@
+FROM maven:3.6.3-openjdk-17 AS build-jar-file
+
+# LABEL authors="felipe"
+
+# COPY . .
+COPY /pom.xml /app/
+COPY /src /app/src/
+WORKDIR /app
+RUN mvn clean package -DskipTests
+
+
+FROM openjdk:17
+WORKDIR /app
+COPY --from=build-jar-file /app/target/my-application.jar .
+CMD ["java", "-jar", "my-application.jar"]

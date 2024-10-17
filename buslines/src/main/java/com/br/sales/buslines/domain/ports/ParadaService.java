@@ -1,4 +1,4 @@
-package com.br.sales.buslines.service;
+package com.br.sales.buslines.domain.ports;
 
 public interface ParadaService {
 

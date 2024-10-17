@@ -1,24 +1,28 @@
-package com.br.sales.buslines.service;
+package com.br.sales.buslines.domain.adapters.service;
 
-import com.br.sales.buslines.Commons;
-import com.br.sales.buslines.model.Credential;
+import com.br.sales.buslines.infrastructure.configuration.Commons;
+import com.br.sales.buslines.domain.model.Credential;
+import com.br.sales.buslines.domain.ports.ParadaService;
+import com.br.sales.buslines.domain.ports.TokenService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.http.RequestEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-@Service
+//@Service
 public class ParadaServiceImpl implements ParadaService {
 
-    @Autowired
     private RestTemplate restTemplate;
 
-    @Autowired
     private TokenService tokenService;
+
+    public ParadaServiceImpl(RestTemplate restTemplate, TokenService tokenService) {
+        this.restTemplate = restTemplate;
+        this.tokenService = tokenService;
+    }
 
     @Override
     public String busca() {
@@ -36,7 +40,6 @@ public class ParadaServiceImpl implements ParadaService {
             return restTemplate
                     .exchange(url, HttpMethod.GET, entity, String.class).getBody();
         } catch (RestClientException e) {
-            // Trate exceções se necessário
             e.printStackTrace();
             return null;
         }

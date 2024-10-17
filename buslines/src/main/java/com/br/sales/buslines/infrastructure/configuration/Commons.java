@@ -1,4 +1,4 @@
-package com.br.sales.buslines;
+package com.br.sales.buslines.infrastructure.configuration;
 
 public class Commons {
 

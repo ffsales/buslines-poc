@@ -1,4 +1,4 @@
-package com.br.sales.buslines.infra.config;
+package com.br.sales.buslines.infrastructure.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

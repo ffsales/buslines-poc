@@ -1,27 +1,22 @@
-package com.br.sales.buslines.service;
+package com.br.sales.buslines.domain.adapters.service;
 
-import com.br.sales.buslines.Commons;
-import com.br.sales.buslines.model.Credential;
-import lombok.RequiredArgsConstructor;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpMethod;
+import com.br.sales.buslines.infrastructure.configuration.Commons;
+import com.br.sales.buslines.domain.model.Credential;
+import com.br.sales.buslines.domain.ports.TokenService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-import java.net.http.HttpResponse;
-
-@Service
-@RequiredArgsConstructor
 public class TokenServiceImpl implements TokenService {
 
-    @Value("${token.sptrans}")
     private String token;
 
-    @Autowired
     private RestTemplate restTemplate;
+
+    public TokenServiceImpl(RestTemplate restTemplate, String token) {
+        this.restTemplate = restTemplate;
+        this.token = token;
+    }
 
     @Override
     public Credential getToken() {
