@@ -1,7 +1,6 @@
 package com.br.sales.buslines.application.adapter.controller;
 
 import com.br.sales.buslines.domain.ports.ParadaService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

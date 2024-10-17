@@ -4,15 +4,13 @@ import com.br.sales.buslines.infrastructure.configuration.Commons;
 import com.br.sales.buslines.domain.model.Credential;
 import com.br.sales.buslines.domain.ports.ParadaService;
 import com.br.sales.buslines.domain.ports.TokenService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 
-//@Service
+
 public class ParadaServiceImpl implements ParadaService {
 
     private RestTemplate restTemplate;
